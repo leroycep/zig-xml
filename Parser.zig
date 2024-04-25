@@ -1,11 +1,10 @@
 const std = @import("std");
 const string = []const u8;
-const extras = @import("extras");
 const Parser = @This();
 const buf_size = 16;
 const xml = @import("./mod.zig");
 
-any: extras.AnyReader,
+any: std.io.AnyReader,
 buf: [buf_size]u8 = std.mem.zeroes([buf_size]u8),
 amt: usize = 0,
 line: usize = 1,
@@ -140,7 +139,7 @@ pub fn eatEnumU8(ore: *Parser, comptime E: type) !?E {
 
 pub fn addStr(ore: *Parser, alloc: std.mem.Allocator, str: string) !xml.StringIndex {
     const adapter: Adapter = .{ .ore = ore };
-    var res = try ore.strings_map.getOrPutAdapted(alloc, str, adapter);
+    const res = try ore.strings_map.getOrPutAdapted(alloc, str, adapter);
     if (res.found_existing) return res.value_ptr.*;
     const q = ore.string_bytes.items.len;
     try ore.string_bytes.appendSlice(alloc, str);
