@@ -24,8 +24,8 @@
     // internet connectivity.
     .dependencies = .{
         .tracer = .{
-            .url = "https://github.com/nektro/zig-tracer/archive/b83b562423e45de109bed99345c34a289bf6b22d.tar.gz",
-            .hash = "12208f539c7739215d3787a85a9e097fa0185f777c11549361bcf0319a7be35740c1",
+            .url = "https://github.com/leroycep/zig-tracer/archive/ee74339eb02f089f33ec442d2dd5d46a76a9202f.tar.gz",
+            .hash = "1220edefdaf0c59cc36f9fd6b9990f1767b7383271384bc5602783f84bb78720b0dc",
         },
     },
     .paths = .{
